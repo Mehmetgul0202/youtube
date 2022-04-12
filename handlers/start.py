@@ -43,13 +43,18 @@ async def _human_time_duration(seconds):
 async def start_(client: Client, message: Message):
     await message.reply_photo("https://telegra.ph/-03-19-947")
     await message.reply_text(
-        f"""✨ **Merhabalar {message.from_user.mention()} **\nBen Sohbetgox Ailesi İçin Yapılmış Müzik Botuyum.Ha Bide bu Botu Boşa Grubuna Alma çalışmaz😇😇\n(Aşk Çok Yakar Usta Tüpmü Taksak)... """,
+        f"""✨ **Merhabalar {message.from_user.mention()} **\n\nBen Sesli Sohbette Müzik Dinlmeniz İçin Yapıldım\n\n Grubunuza alıp kullanabilirsiniz... """,
         reply_markup=InlineKeyboardMarkup(
             [ 
-                [
-                   InlineKeyboardButton(text= "🔥 𝙎𝙖𝙝𝙞𝙥 🔥", url = "https://t.me/Xxdayi")
+                [          
+                   InlineKeyboardButton(
+                        "🎶 𝘽𝙚𝙣𝙞 𝙂𝙧𝙪𝙗𝙪𝙣𝙖 𝙀𝙠𝙡𝙚 🎶", url="https://t.me/YoutubeVcBot?startgroup=a")
                 ],[
-                   InlineKeyboardButton(text= "💬 𝘚𝘰𝘩𝘣𝘦𝘵 𝘎𝘳𝘶𝘣𝘶𝘮𝘶𝘻 💬", url = "https://t.me/Sohbetgox")
+                   InlineKeyboardButton(
+                        "🥳 𝘼𝙨𝙞𝙨𝙩𝙖𝙣 🥳", url="https://t.me/YoutubeVcAsistan")
+                ],[
+                   InlineKeyboardButton(
+                        "📜 𝙆𝙤𝙢𝙪𝙩𝙡𝙖𝙧 𝙑𝙚 𝙎𝙪𝙥𝙥𝙤𝙧𝙩 📜", url="https://t.me/YoutubeVcDestek")  
                 ],
            ]
         ),

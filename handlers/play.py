@@ -238,7 +238,7 @@ async def play(_, message: Message):
                 [
                     InlineKeyboardButton(
                         text="💢 DUYURU 💢",
-                        url="https://t.me/Sohbet_go")
+                        url="https://t.me/YoutubeVCdestek")
                    
                 ]
             ]
@@ -257,7 +257,7 @@ async def play(_, message: Message):
     if int(message.chat.id) in ACTV_CALLS:
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
-        photo="https://telegra.ph/-03-19-948",
+        photo="https://telegra.ph/Youtube-04-12-38",
         caption="**🎵 : ** {}\n**🕒 :** {} min\n**👤 :** {}\n\n**🔸 𝐒̧𝐀𝐑𝐊𝐈 𝐒𝐈𝐑𝐀𝐘𝐀 𝐀𝐋𝐈𝐍𝐃𝐈:** {}".format(
         title, duration, message.from_user.mention(), position
         ),
@@ -275,7 +275,7 @@ async def play(_, message: Message):
             )
 
         await message.reply_photo(
-        photo="https://telegra.ph/-03-19-948",
+        photo="https://telegra.ph/Youtube-04-12-3",
         reply_markup=keyboard,
         caption="**🎵 :** {}\n**🕒 :** {} min\n**👤 :** {}\n**👥 : `{}`**".format(
         title, duration, message.from_user.mention(), message.chat.title

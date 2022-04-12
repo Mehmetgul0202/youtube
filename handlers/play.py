@@ -66,7 +66,7 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
 
 
 
-@Client.on_message(command(["dinle", "oynat"]) 
+@Client.on_message(command(["play", "oynat"]) 
                    & filters.group
                    & ~filters.edited 
                    & ~filters.forwarded
@@ -135,8 +135,8 @@ async def play(_, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        text="💢 DUYURU 💢",
-                        url="https://t.me/Sohbet_go")
+                        text="📜 𝙆𝙤𝙢𝙪𝙩𝙡𝙖𝙧 𝙑𝙚 𝙎𝙪𝙥𝙥𝙤𝙧𝙩 📜",
+                        url="https://t.me/youtubevcdestek")
                    
                 ]
             ]
@@ -173,8 +173,8 @@ async def play(_, message: Message):
              [
                    [
                     InlineKeyboardButton(
-                        text="💢 DUYURU 💢",
-                        url="https://t.me/Sohbet_go")
+                        text="📜 𝙆𝙤𝙢𝙪𝙩𝙡𝙖𝙧 𝙑𝙚 𝙎𝙪𝙥𝙥𝙤𝙧𝙩 📜",
+                        url="https://t.me/youtubevcdestek")
                    
                    ]
             ]
@@ -188,8 +188,8 @@ async def play(_, message: Message):
             [
                   [
                     InlineKeyboardButton(
-                        text="💢 DUYURU 💢",
-                        url="https://t.me/Sohbet_go")
+                        text="📜 𝙆𝙤𝙢𝙪𝙩𝙡𝙖𝙧 𝙑𝙚 𝙎𝙪𝙥𝙥𝙤𝙧𝙩 📜",
+                        url="https://t.me/youtubevcdestek")
                    
                   ]
             ]
@@ -237,8 +237,8 @@ async def play(_, message: Message):
            [
                 [
                     InlineKeyboardButton(
-                        text="💢 DUYURU 💢",
-                        url="https://t.me/YoutubeVCdestek")
+                        text="📜 𝙆𝙤𝙢𝙪𝙩𝙡𝙖𝙧 𝙑𝙚 𝙎𝙪𝙥𝙥𝙤𝙧𝙩 📜",
+                        url="https://t.me/youtubevcdestek")
                    
                 ]
             ]

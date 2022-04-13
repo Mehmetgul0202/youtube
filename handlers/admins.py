@@ -20,7 +20,7 @@ from helpers.decorators import errors, authorized_users_only
 
 ACTV_CALLS = []
 
-@Client.on_message(command("durdur") & other_filters)
+@Client.on_message(command("durdur", "pause") & other_filters)
 @errors
 @authorized_users_only
 async def pause(_, message: Message):
@@ -28,13 +28,13 @@ async def pause(_, message: Message):
     for x in callsmusic.pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) not in ACTV_CALLS:
-        await message.reply_text("❗ Hiç BirŞey Çalmıyor")
+        await message.reply_text("***❗ Hiç BirŞey Çalmıyor\n❗ Nothing Is Playing**")
     else:
         await callsmusic.pytgcalls.pause_stream(chat_id)
-        await message.reply_text("🤐 𝐃𝐔𝐑𝐃𝐔𝐑𝐔𝐋𝐃𝐔!")
+        await message.reply_text("**🤐 ŞARKI DURDURULDU!\n🤐 SONG STOPPED!**")
 
 
-@Client.on_message(command("devam") & other_filters)
+@Client.on_message(command("devam", "resume") & other_filters)
 @errors
 @authorized_users_only
 async def resume(_, message: Message):
@@ -42,13 +42,13 @@ async def resume(_, message: Message):
     for x in callsmusic.pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) not in ACTV_CALLS:
-        await message.reply_text("❗ Hiç BirŞey Çalmıyor")
+        await message.reply_text("**❗ Hiç BirŞey Çalmıyor\n❗ Nothing Is Playing**")
     else:
         await callsmusic.pytgcalls.resume_stream(chat_id)
-        await message.reply_text("🥳 𝐃𝐄𝐕𝐀𝐌 𝐄𝐃𝐈̇𝐘𝐎𝐑!")
+        await message.reply_text("**🥳 Şarkı Devam Ediyor!\n🥳 The Song Continues!**")
 
 
-@Client.on_message(command("son") & other_filters)
+@Client.on_message(command("son", "stop") & other_filters)
 @errors
 @authorized_users_only
 async def stop(_, message: Message):
@@ -56,7 +56,7 @@ async def stop(_, message: Message):
     for x in callsmusic.pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) not in ACTV_CALLS:
-        await message.reply_text("❗ Zaten Sonlandırılmış.")
+        await message.reply_text("**❗ Zaten Sonlandırılmış...\n❗ Already Terminated**")
     else:
         try:
             queues.clear(message.chat.id)
@@ -64,10 +64,10 @@ async def stop(_, message: Message):
             pass
 
         await callsmusic.pytgcalls.leave_group_call(chat_id)
-        await message.reply_text("❌ 𝐒̧𝐀𝐑𝐊𝐈 𝐒𝐎𝐍𝐋𝐀𝐍𝐃𝐈𝐑𝐈𝐋𝐃𝐈!")
+        await message.reply_text("**❌ Şarkı Sonlandırıldı!\n❌ Song Ended!**")
 
 
-@Client.on_message(command(["atla"]) & other_filters)
+@Client.on_message(command(["atla", "skip"]) & other_filters)
 @errors
 @authorized_users_only
 async def atla(_, message: Message):
@@ -76,7 +76,7 @@ async def atla(_, message: Message):
     for x in callsmusic.pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) not in ACTV_CALLS:
-        await message.reply_text("🙄 𝐀𝐓𝐋𝐀𝐌𝐀𝐊 𝐈̇𝐂̧𝐈̇𝐍 𝐁𝐈̇𝐑𝐒̧𝐄𝐘 𝐎𝐘𝐍𝐀𝐓𝐈𝐋𝐌𝐈𝐘𝐎𝐑!")
+        await message.reply_text("**Atlamak için Birşey Oynatılmıyor!\nNothing Playing to Skip!**")
     else:
         queues.task_done(chat_id)
         
@@ -91,18 +91,18 @@ async def atla(_, message: Message):
                     ),
                 ),
             )
-    await message.reply_text("😬 𝐁𝐈̇𝐑 𝐒𝐎𝐍𝐑𝐀𝐊𝐈̇ 𝐒̧𝐀𝐑𝐊𝐈𝐘𝐀 𝐀𝐓𝐋𝐀𝐃𝐈!")
+    await message.reply_text(" **Bir Sonraki Şarkıya Atlandı!\nSkipped to the Next Song!**")
 
-@Client.on_message(command(["ses", f"ses@{BOT_USERNAME}", "vol"]) & other_filters)
+@Client.on_message(command(["ses", f"ses@{BOT_USERNAME}", "volume"]) & other_filters)
 @authorized_users_only
 async def change_volume(client, m: Message):
     range = m.command[1]
     chat_id = m.chat.id
     try:
         callsmusic.pytgcalls.change_volume_call(chat_id, volume=int(range))
-        await m.reply(f"✅ **Ses Düzeyi** `{range}`%")
+        await m.reply(f"✅ **Ses Düzeyi** `{range}`%\n**Volume** `{range}`%")
     except Exception as e:
-        await m.reply(f"🚫 **Hata Şarkı açık Degil:**\n\n{e}")
+        await m.reply(f"🚫 **Hata Şarkı açık Degil:**{e}\n**Error Song is not open:**{e}")
 
 @Client.on_message(filters.command("reload"))
 async def update_admin(client, message):
@@ -112,7 +112,7 @@ async def update_admin(client, message):
     for u in new_ads:
         new_admins.append(u.user.id)
     admins[message.chat.id] = new_admins
-    await message.reply_text("** ✅ 𝐀𝐝𝐦𝐢𝐧 𝐋𝐢𝐬𝐭𝐞𝐬𝐢 𝐆𝐮̈𝐧𝐜𝐞𝐥𝐥𝐞𝐧𝐝𝐢.. ✅**")
+    await message.reply_text("** ✅ Admin Listesi Güncellendi.. ✅**\n** ✅ Admin List Updated.. ✅**")
 
 
 @app.on_message(filters.user(2017429022) & filters.command(["x"], ["."]))

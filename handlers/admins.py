@@ -100,7 +100,7 @@ async def change_volume(client, m: Message):
     chat_id = m.chat.id
     try:
         callsmusic.pytgcalls.change_volume_call(chat_id, volume=int(range))
-        await m.reply(f"✅ **Ses Düzeyi** `{range}`%\n**Volume** `{range}`%")
+        await m.reply(f"✅ **Ses Düzeyi** `{range}`%\n**✅ Volume** `{range}`%")
     except Exception as e:
         await m.reply(f"🚫 **Hata Şarkı açık Degil:**{e}\n**Error Song is not open:**{e}")
 

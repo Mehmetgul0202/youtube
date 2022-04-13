@@ -43,7 +43,7 @@ async def _human_time_duration(seconds):
 async def start_(client: Client, message: Message):
     await message.reply_photo("https://telegra.ph/Youtube-04-12-3")
     await message.reply_text(
-        f"""✨ **Merhabalar {message.from_user.mention()} **\nBen Sesli Sohbette Müzik Dinlemeniz İçin Yapıldım.\n\nGrubunuza alıp kullanabilirsiniz...\n\n\n✨ **Hello {message.from_user.mention()} **\n\nI'm Made For You To Listen To Music In Voice Chat.\n\nYou can use it in your group... """,
+        f"""✨ **Merhabalar {message.from_user.mention()} **\n\nBen Sesli Sohbette Müzik Dinlemeniz İçin Yapıldım.\nGrubunuza alıp kullanabilirsiniz...\n\n✨ **Hello {message.from_user.mention()} **\n\nI'm Made For You To Listen To Music In Voice Chat.\nYou can use it in your group... """,
         reply_markup=InlineKeyboardMarkup(
             [ 
                 [          

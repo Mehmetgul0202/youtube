@@ -128,7 +128,7 @@ async def play(_, message: Message):
         title = file_name
         thumb_name = "https://i.ibb.co/Qkz78hx/images-1.jpg"
         thumbnail = thumb_name
-        duration = round(audio.duration / 60)
+        duration = round(audio.duration / 120)
         views = "Yerel olarak eklendi"
 
         keyboard = InlineKeyboardMarkup(
@@ -257,7 +257,7 @@ async def play(_, message: Message):
     if int(message.chat.id) in ACTV_CALLS:
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
-        photo="https://telegra.ph/Youtube-04-12-38",
+        photo="https://telegra.ph/Youtube-04-12-3",
         caption="**🎵 : ** {}\n**🕒 :** {} min\n**👤 :** {}\n\n**🔸 𝐒̧𝐀𝐑𝐊𝐈 𝐒𝐈𝐑𝐀𝐘𝐀 𝐀𝐋𝐈𝐍𝐃𝐈:** {}".format(
         title, duration, message.from_user.mention(), position
         ),

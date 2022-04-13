@@ -203,7 +203,7 @@ async def play(_, message: Message):
     else:
         if len(message.command) < 2:
             return await lel.edit("🧐 **Dinlemek istediğin şarkı nedir?\n🧐 What song do you want to listen to?**")
-        await lel.edit("🙂")
+        await lel.edit("⏳")
         query = message.text.split(None, 1)[1]
         # print(query)
         try:

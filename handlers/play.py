@@ -256,9 +256,8 @@ async def play(_, message: Message):
         ACTV_CALLS.append(int(x.chat_id))
     if int(message.chat.id) in ACTV_CALLS:
         position = await queues.put(message.chat.id, file=file_path)
-        await message.reply_photo(
-        photo="https://telegra.ph/Youtube-04-12-3",
-        caption="**🎵 : ** {}\n**🕒 :** {} min\n**👤 :** {}\n\n**🔸 𝐒̧𝐀𝐑𝐊𝐈 𝐒𝐈𝐑𝐀𝐘𝐀 𝐀𝐋𝐈𝐍𝐃𝐈:** {}".format(
+        await  message.reply_text(
+        "**🎵 : ** {}\n**🕒 :** {} min\n**👤 :** {}\n\n**🔸 𝐒̧𝐀𝐑𝐊𝐈 𝐒𝐈𝐑𝐀𝐘𝐀 𝐀𝐋𝐈𝐍𝐃𝐈:** {}".format(
         title, duration, message.from_user.mention(), position
         ),
         reply_markup=keyboard)
@@ -274,10 +273,8 @@ async def play(_, message: Message):
                 stream_type=StreamType().local_stream,
             )
 
-        await message.reply_photo(
-        photo="https://telegra.ph/Youtube-04-12-3",
-        reply_markup=keyboard,
-        caption="**🎵 :** {}\n**🕒 :** {} min\n**👤 :** {}\n**👥 : `{}`**".format(
+        await  message.reply_text(
+        "**🎵 :** {}\n**🕒 :** {} min\n**👤 :** {}\n**👥 : `{}`**".format(
         title, duration, message.from_user.mention(), message.chat.title
         ), )
         return await lel.delete()

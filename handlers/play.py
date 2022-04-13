@@ -83,7 +83,7 @@ async def play(_, message: Message):
     try:
         user = await USER.get_me()
     except:
-        user.first_name = "goxmüzikasistan"
+        user.first_name = "youtubeVcAsistan"
     usar = user
     wew = usar.id
     try:
@@ -95,13 +95,13 @@ async def play(_, message: Message):
                     invitelink = await _.export_chat_invite_link(chid)
                 except:
                     await lel.edit(
-                        "<b>Önce beni Grubunun yöneticisi olarak ekle!</b>")
+                        "<b>Önce beni Grubunun yöneticisi olarak ekle!</b>\n<b>First add me as admin of your Group!</b>")
                     return
 
                 try:
                     await USER.join_chat(invitelink)
                     await USER.send_message(
-                        message.chat.id, "**Sen Çağırdında Ben Gelmedimmi?😇**")
+                        message.chat.id, "**Asistan Davetiniz üzerine katıldı\nAssistant joined upon your invitation**")
 
                 except UserAlreadyParticipant:
                     pass
@@ -112,7 +112,7 @@ async def play(_, message: Message):
         await USER.get_chat(chid)
     except:
         await lel.edit(
-            f"<i>{user.first_name}, @goxmuzikasistan Grupunuzdan Banlanmis veya Çıkartılmıştır.Lütfen Bani Kaldırıp Tekrar Deneyiniz.</i>")
+            f"<i>{user.first_name}, @youtubevcasistan Grupunuzdan Banlanmis veya Çıkartılmıştır.Lütfen Bani Kaldırıp Tekrar Deneyiniz.</i>\n@youtubevcasistan Banned or Removed From Your Group. Please Remove Ban And Try Again.")
         return
     
     audio = (message.reply_to_message.audio or message.reply_to_message.voice) if message.reply_to_message else None
@@ -121,7 +121,7 @@ async def play(_, message: Message):
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
             raise DurationLimitError(
-                f"❌ Daha uzun videolar {DURATION_LIMIT} dakikaların oynatılamasına izin verilmez!"
+                f"**❌ Daha uzun videolar {DURATION_LIMIT} dakikaların oynatılamasına izin verilmez!\n❌ Longer videos {DURATION_LIMIT} minutes are not allowed to be played!**"
             )
 
         file_name = get_file_name(audio)
@@ -195,14 +195,14 @@ async def play(_, message: Message):
             ]
         )
         if (dur / 60) > DURATION_LIMIT:
-             await lel.edit(f"❌ Daha uzun videolar {DURATION_LIMIT} dakikaların oynatılamasına izin verilmez!")
+             await lel.edit(f"**❌ Daha uzun videolar {DURATION_LIMIT} dakikaların oynatılamasına izin verilmez!\n❌ Longer videos {DURATION_LIMIT} minutes are not allowed to be played!**")
              return
         requested_by = message.from_user.first_name
         await generate_cover(requested_by, title, views, duration, thumbnail)     
         file_path = await converter.convert(youtube.download(url))
     else:
         if len(message.command) < 2:
-            return await lel.edit("🧐 **Dinlemek istediğin şarkı nedir?**")
+            return await lel.edit("🧐 **Dinlemek istediğin şarkı nedir?\n🧐 What song do you want to listen to?**")
         await lel.edit("🙂")
         query = message.text.split(None, 1)[1]
         # print(query)
@@ -228,7 +228,7 @@ async def play(_, message: Message):
                 
         except Exception as e:
             await lel.edit(
-                "❌ Şarkı bulunamadı.\n\nBaşka bir şarkı deneyin veya belki düzgün heceleyin."
+                "❌ Şarkı bulunamadı.\n\nBaşka bir şarkı deneyin veya belki düzgün heceleyin.\n❌ Song not found.\n\nTry another song or maybe spell it out properly."
             )
             print(str(e))
             return
@@ -244,7 +244,7 @@ async def play(_, message: Message):
             ]
         )
         if (dur / 60) > DURATION_LIMIT:
-             await lel.edit(f"❌ Daha uzun videolar {DURATION_LIMIT} dakikaların oynatılamasına izin verilmez!")
+             await lel.edit(f"**❌ Daha uzun videolar {DURATION_LIMIT} dakikaların oynatılamasına izin verilmez!\n❌ Longer videos {DURATION_LIMIT} minutes are not allowed to be played!**")
              return
         requested_by = message.from_user.first_name
         await generate_cover(requested_by, title, views, duration, thumbnail)  

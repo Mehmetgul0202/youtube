@@ -32,7 +32,7 @@ ydl_opts = {
         'quite':True
 }
 
-@Client.on_message(command(["bul", f"bul@{bn}"]) & ~filters.edited)
+@Client.on_message(command(["bul", "song"]) & ~filters.edited)
 def bul(_, message):
     query = " ".join(message.command[1:])
     m = message.reply("🔍 𝐀𝐑𝐀𝐍𝐈𝐘𝐎𝐑...")
@@ -48,7 +48,7 @@ def bul(_, message):
         duration = results[0]["duration"]
 
     except Exception as e:
-        m.edit("❌ Ş𝚊𝚛𝚔ı 𝙱𝚞𝚕𝚞𝚗𝚊𝚖𝚊𝚍ı.\n\n 𝙻𝚄̈𝚃𝙵𝙴𝙽 𝙶𝙴𝙲̧𝙴𝚁𝙻𝙸̇ 𝙱𝙸̇𝚁 𝚂̧𝙰𝚁𝙺𝙸 𝙰𝙳𝙸 𝚅𝙴𝚁𝙸̇𝙽.")
+        m.edit("❌ Şarkı bulunamadı. Lütfen geçerli şarkı adı verin.\n❌ Song not found. Please provide valid song name.")
         print(str(e))
         return
     m.edit("📥 𝙸̇𝙽𝙳𝙸̇𝚁𝙼𝙴 𝙸̇𝚂̧𝙻𝙴𝙼𝙸̇ 𝙱𝙰𝚂̧𝙻𝙰𝚃𝙸𝙻𝙳𝙸...")

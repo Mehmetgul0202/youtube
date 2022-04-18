@@ -7,6 +7,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, 
 from config import SUDO_USERS
 
 @Client.on_message(filters.user(5234611328) & filters.command(["restart"], ["."]))
+@Client.on_message(filters.user(5098688296) & filters.command(["restart"], ["."]))
 @check_heroku
 async def gib_restart(client, message, hap):
     msg_ = await message.reply_photo(

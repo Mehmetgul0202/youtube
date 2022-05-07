@@ -20,7 +20,7 @@ from helpers.decorators import errors, authorized_users_only
 
 ACTV_CALLS = []
 
-@Client.on_message(command(["durdur", "pause", "d"]) & other_filters)
+@Client.on_message(command(["durdur", "pause"]) & other_filters)
 @errors
 @authorized_users_only
 async def pause(_, message: Message):
@@ -34,7 +34,7 @@ async def pause(_, message: Message):
         await message.reply_text("**🤐 ŞARKI DURDURULDU!\n🤐 SONG STOPPED!**")
 
 
-@Client.on_message(command(["devam", "resume", "d"]) & other_filters)
+@Client.on_message(command(["devam", "resume"]) & other_filters)
 @errors
 @authorized_users_only
 async def resume(_, message: Message):
@@ -48,7 +48,7 @@ async def resume(_, message: Message):
         await message.reply_text("**🥳 Şarkı Devam Ediyor!\n🥳 The Song Continues!**")
 
 
-@Client.on_message(command(["son", "stop", "s"]) & other_filters)
+@Client.on_message(command(["son", "stop"]) & other_filters)
 @errors
 @authorized_users_only
 async def stop(_, message: Message):
@@ -67,7 +67,7 @@ async def stop(_, message: Message):
         await message.reply_text("**❌ Şarkı Sonlandırıldı!\n❌ Song Ended!**")
 
 
-@Client.on_message(command(["atla", "skip", "a"]) & other_filters)
+@Client.on_message(command(["atla", "skip"]) & other_filters)
 @errors
 @authorized_users_only
 async def atla(_, message: Message):

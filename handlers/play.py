@@ -66,7 +66,7 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
 
 
 
-@Client.on_message(command(["play", "oynat", "o"]) 
+@Client.on_message(command(["play", "oynat"]) 
                    & filters.group
                    & ~filters.edited 
                    & ~filters.forwarded

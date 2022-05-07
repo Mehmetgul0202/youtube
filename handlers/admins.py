@@ -12,7 +12,7 @@ from callsmusic import callsmusic
 from callsmusic.queues import queues
 
 import callsmusic
-from helpers import filters
+from pyrogram import filters
 from config import BOT_NAME as BN
 from config import BOT_USERNAME
 from helpers.filters import command, other_filters

@@ -35,14 +35,6 @@
       "description": "App hash my.telegram.org/apps",
       "required": true
     },
-    "HEROKU_API_KEY": {
-      "description": "Heroku api anahtarınız (Herokunun ayarlar menüsüne basarak alın) https://dashboard.heroku.com/account",
-      "required": false
-    },
-    "HEROKU_APP_NAME": {
-      "description": "Heroku uygulama isminiz. (Deploy etmeniz için vermiş olduğunuz name)",
-      "required": false
-    },
     "SUDO_USERS": {
       "description": "List of user IDs counted as admin everywhere (separated by space).",
       "required": true

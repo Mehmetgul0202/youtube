@@ -32,7 +32,7 @@ ydl_opts = {
         'quite':True
 }
 
-@Client.on_message(command(["bul", "song"]) & ~filters.edited)
+@Client.on_message(command(["bul", "song", "b"]) & ~filters.edited)
 def bul(_, message):
     query = " ".join(message.command[1:])
     m = message.reply("🔍 𝐀𝐑𝐀𝐍𝐈𝐘𝐎𝐑...")

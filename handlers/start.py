@@ -46,7 +46,10 @@ async def start_(client: Client, message: Message):
         f"""✨ **Merhabalar {message.from_user.mention()} **\n\nBen Sesli Sohbette Müzik Dinlemeniz İçin Yapıldım.\nGrubunuza alıp kullanabilirsiniz...\n\n✨ **Hello {message.from_user.mention()} **\n\nI'm Made For You To Listen To Music In Voice Chat.\nYou can use it in your group... """,
         reply_markup=InlineKeyboardMarkup(
             [ 
-                [          
+               [          
+                   InlineKeyboardButton(
+                        "🔥 SAHİP 🔥", url="https://t.me/MissSahip")
+                ],[          
                    InlineKeyboardButton(
                         "🎶 𝘽𝙚𝙣𝙞 𝙂𝙧𝙪𝙗𝙪𝙣𝙖 𝙀𝙠𝙡𝙚 🎶", url="https://t.me/YoutubeVcBot?startgroup=a")
                 ],[
